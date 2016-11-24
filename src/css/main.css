@@ -21,3 +21,8 @@ body {
 .form-control {
     color: black;
 }
+
+label.field-name {
+    font-size: medium;
+    font-weight: bold;
+}
