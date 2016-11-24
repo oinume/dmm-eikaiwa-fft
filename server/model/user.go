@@ -15,14 +15,15 @@ const (
 )
 
 type User struct {
-	ID                uint32 `gorm:"primary_key;AUTO_INCREMENT"`
-	Name              string
-	Email             Email
-	EmailVerified     bool
-	PlanID            uint8
-	FollowedTeacherAt mysql.NullTime
-	CreatedAt         time.Time
-	UpdatedAt         time.Time
+	ID                     uint32 `gorm:"primary_key;AUTO_INCREMENT"`
+	Name                   string
+	Email                  Email
+	EmailVerified          bool
+	PlanID                 uint8
+	FollowedTeacherAt      mysql.NullTime
+	SendLessonNotification bool
+	CreatedAt              time.Time
+	UpdatedAt              time.Time
 }
 
 func (*User) TableName() string {
