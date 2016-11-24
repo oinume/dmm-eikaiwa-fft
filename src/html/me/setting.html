@@ -4,8 +4,17 @@
   <form method="POST" action="/me/setting/update">
     {{ template "_flashMessage.html" . }}
     <div class="form-group">
-      <label for="email">Email address</label>
+      <label for="email" class="field-name">メールアドレス</label>
       <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="{{ .Email }}" required autofocus autocomplete="on">
+    </div>
+    <div class="form-group">
+      <label class="field-name">空きレッスンの通知</label><br>
+      <label class="radio-inline">
+        <input type="radio" name="sendLessonNotification" id="sendLessonNotificationTrue" value="true">ON
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="sendLessonNotification" id="sendLessonNotificationFalse" value="true">OFF
+      </label>
     </div>
     <button type="submit" class="btn btn-primary">送信</button>
   </form>
