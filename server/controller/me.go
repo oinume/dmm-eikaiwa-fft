@@ -6,6 +6,8 @@ import (
 	"strings"
 	"time"
 
+	"strconv"
+
 	"github.com/oinume/lekcije/server/controller/flash_message"
 	"github.com/oinume/lekcije/server/errors"
 	"github.com/oinume/lekcije/server/fetcher"
@@ -210,10 +212,25 @@ func PostMeSettingUpdate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	service := model.NewUserService(model.MustDB(ctx))
-	if err := service.UpdateEmail(user, email); err != nil {
-		InternalServerError(w, err)
+	userService := model.NewUserService(model.MustDB(ctx))
+	if email != user.Email.Raw() {
+		if err := userService.UpdateEmail(user, email); err != nil {
+			InternalServerError(w, err)
+			return
+		}
+	}
+
+	sendLessonNotificationStr := r.FormValue("sendLessonNotification")
+	sendLessonNotification, err := strconv.ParseBool(sendLessonNotificationStr)
+	if err != nil {
+		InternalServerError(w, err) // TODO: validation error
 		return
+	}
+	if sendLessonNotification != user.SendLessonNotification {
+		if err := userService.UpdateSendLessonNotification(user, sendLessonNotification); err != nil {
+			InternalServerError(w, err)
+			return
+		}
 	}
 
 	successMessage := flash_message.New(flash_message.KindSuccess, updatedMessage)

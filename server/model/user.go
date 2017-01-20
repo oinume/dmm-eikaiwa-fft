@@ -161,6 +161,14 @@ func (s *UserService) UpdateFollowedTeacherAt(user *User) error {
 	return nil
 }
 
+func (s *UserService) UpdateSendLessonNotification(user *User, value bool) error {
+	sql := "UPDATE user SET send_lesson_notification = ? WHERE id = ?"
+	if err := s.db.Exec(sql, value, user.ID).Error; err != nil {
+		return errors.InternalWrapf(err, "Failed to update send_lesson_notification: id=%v", user.ID)
+	}
+	return nil
+}
+
 func FindLoggedInUserAndSetToContext(token string, ctx context.Context) (*User, context.Context, error) {
 	db := MustDB(ctx)
 	user := &User{}
