@@ -2,3 +2,6 @@ numpy
 jupyter
 pandas
 matplotlib
+pymysql
+#ipython-sql
+git+https://github.com/catherinedevlin/ipython-sql.git
