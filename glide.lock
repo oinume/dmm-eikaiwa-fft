@@ -1,5 +1,5 @@
-hash: 43260bb6ae4a010e6996f6ea56efc1b88fa6ffa3201c399b904600a3dfda8766
-updated: 2017-07-14T21:57:03.030804756+09:00
+hash: ebaf13a62acb93a0f0dfadda865e39738bc060da5887baa30b077d501a2d7258
+updated: 2017-07-28T21:08:33.884756165+09:00
 imports:
 - name: bitbucket.org/liamstask/goose
   version: 8488cc47d90c8a502b1c41a462a6d9cc8ee0a895
@@ -29,6 +29,8 @@ imports:
   version: 064e2069ce9c359c118179501254f67d7d37ba24
 - name: github.com/googleapis/gax-go
   version: da06d194a00e19ce00d9011a13931c3f6f6887c7
+- name: github.com/huandu/facebook
+  version: 24ce8d1913aaad265ff4cb4af6a1d1b1801d3021
 - name: github.com/jinzhu/gorm
   version: 23abd03a95a16de0ef2d559979ead26b2a3cce66
   subpackages:
@@ -125,6 +127,7 @@ imports:
 - name: golang.org/x/oauth2
   version: 314dd2c0bf3ebd592ec0d20847d27e79d0dbe8dd
   subpackages:
+  - facebook
   - google
   - internal
   - jws

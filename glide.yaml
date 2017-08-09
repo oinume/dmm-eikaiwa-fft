@@ -46,10 +46,12 @@ import:
   subpackages:
   - spew
 - package: github.com/uber-go/zap
+  version: fc9fbdfe46f6dc6a78028f22a2fb086dd13182fd
 - package: github.com/uber-go/atomic
 - package: github.com/oinume/goenum
 - package: github.com/pkg/errors
 - package: gopkg.in/redis.v4
+  version: v4.2.4
 - package: github.com/sclevine/agouti
 - package: github.com/rs/cors
 - package: github.com/rs/xhandler
@@ -75,6 +77,8 @@ import:
   - cmd/gosimple
   - cmd/unused
 - package: github.com/kisielk/gotool
+- package: github.com/huandu/facebook
+  version: v1.7.1
 - package: golang.org/x/sync
   subpackages:
   - errgroup
